@@ -2,6 +2,8 @@
 
 # WordPress Deployment on Amazon Linux 2 with MariaDB
 
+![Alt text](Hosting Wordpress on Amazon Linux 2.jpeg)
+
 ## Project Overview
 
 This project deploys of a WordPress instance on an Amazon Linux 2 EC2 instance within a public subnet of the default VPC, alongside a MariaDB database. This setup is suitable for testing or small-scale deployments but is not recommended for production due to its simplicity and lack of scalability and security measures.
