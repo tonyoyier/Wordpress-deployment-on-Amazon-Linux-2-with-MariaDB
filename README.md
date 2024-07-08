@@ -2,7 +2,7 @@
 
 # WordPress Deployment on Amazon Linux 2 with MariaDB
 
-[Alt text](Hosting Wordpress on Amazon Linux 2.jpeg)
+![Hosting Wordpress on Amazon Linux 2](https://github.com/tonyoyier/Wordpress-deployment-on-Amazon-Linux-2-with-MariaDB/assets/91553376/cd0ed78b-a073-4584-9587-66de1c6f4812)
 
 ## Project Overview
 
