@@ -2,13 +2,16 @@
 
 # WordPress Deployment on Amazon Linux 2 with MariaDB
 
+## Project Overview
+
 This project deploys of a WordPress instance on an Amazon Linux 2 EC2 instance within a public subnet of the default VPC, alongside a MariaDB database. This setup is suitable for testing or small-scale deployments but is not recommended for production due to its simplicity and lack of scalability and security measures.
 
-## Project Structure
+## Architecture Overview
 
-- **Reference Diagram**: Contains the architecture diagram of the deployment setup.
-- **Scripts**: Includes the scripts used to provision and configure the EC2 instance, MariaDB database, and related components.
-
+- **Virtual Private Cloud (VPC)**: Public subnet
+- **Wordpress Server**: Deployed on Amazon Linux 2
+- **Security Groups**: Configured to allow communication between components.
+  
 ## Key Tasks Achieved
 
 1. **Deploy and Configure WordPress on Amazon Linux 2**
@@ -58,6 +61,39 @@ This project deploys of a WordPress instance on an Amazon Linux 2 EC2 instance w
   FLUSH PRIVILEGES;
   exit
   ```
+### Step 3: Installing WordPress
+
+- Downloaded and extracted WordPress:
+  ```bash
+  cd /var/www/html
+  wget https://wordpress.org/latest.tar.gz
+  tar -xzf latest.tar.gz
+  sudo chown -R apache:apache wordpress
+  sudo mv wordpress/* .
+  sudo rm -rf wordpress latest.tar.gz
+  sudo systemctl restart httpd
+  ```
+- Set up the WordPress configuration:
+  ```bash
+  cd /var/www/html
+  cp wp-config-sample.php wp-config.php
+  nano wp-config.php
+  ```
+  Edited the `wp-config.php` file to include my database details:
+  ```php
+  /** The name of the database for WordPress */
+  define('DB_NAME', 'wordpress-db');
+
+  /** MySQL database username */
+  define('DB_USER', 'wordpress-user');
+
+  /** MySQL database password */
+  define('DB_PASSWORD', 'your_strong_password');
+
+  /** MySQL hostname */
+  define('DB_HOST', 'localhost');
+  ```
+- Completed the WordPress installation through my browser by accessing the public IP of my EC2 instance.
 
 ## Notes on Architecture
 
@@ -69,7 +105,4 @@ This project deploys of a WordPress instance on an Amazon Linux 2 EC2 instance w
 
 - [AWS Tutorial on Hosting WordPress on Amazon Linux 2](https://docs.aws.amazon.com/linux/al2/ug/hosting-wordpress.html)
 - [Installing a LAMP Web Server on Amazon Linux 2](https://docs.aws.amazon.com/linux/al2/ug/ec2-lamp-amazon-linux-2.html)
-
-## Repository Contents
-
----
+```
