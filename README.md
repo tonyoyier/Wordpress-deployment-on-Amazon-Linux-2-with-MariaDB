@@ -2,7 +2,7 @@
 
 # WordPress Deployment on Amazon Linux 2 with MariaDB
 
-![Alt text](Hosting Wordpress on Amazon Linux 2.jpeg)
+[Alt text](Hosting Wordpress on Amazon Linux 2.jpeg)
 
 ## Project Overview
 
